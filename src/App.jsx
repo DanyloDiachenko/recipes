@@ -25,21 +25,23 @@ function App() {
         <h3>header</h3>
       </header>
 
-      <Routes>
-        <Route exact path="/" element={<Categories
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          search={() => navigate(`/recipe/${inputValue}`)} />}
-        />
+      <main className='container'>
+        <Routes>
+          <Route exact path="/" element={<Categories
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            search={() => navigate(`/recipe/${inputValue}`)} />}
+          />
 
-        <Route path="/category/:category" element={<Category />} />
+          <Route path="/category/:category" element={<Category />} />
 
-        <Route path="/recipies" element={<Recipies />} />
+          <Route path="/recipies" element={<Recipies />} />
 
-        <Route path="/recipe/:recipe" element={<Recipe />} />
+          <Route path="/recipe/:recipe" element={<Recipe />} />
 
-        <Route element={<NotFound />} />
-      </Routes>
+          <Route element={<NotFound />} />
+        </Routes>
+      </main>
 
       <footer>
         <h3>footer</h3>

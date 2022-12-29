@@ -1,0 +1,6 @@
+.card {
+    padding: 10px 20px 20px 20px;
+}
+.card > div > button {
+    width: 100%;
+}

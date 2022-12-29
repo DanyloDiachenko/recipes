@@ -1,12 +1,14 @@
-export const CategoryItem = () => {
+export const CategoryItem = (props) => {
     return (
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap" />
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+        <article className='col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center'>
+            <div className="card mt-4" key={props.key}>
+                <img src={props.img} alt="Recipe" />
+                <h2>{props.title}</h2>
+                <p>{props.description.slice(0, 150)}...</p>
+                <div className='d-flex align-items-end' style={{height: '100%'}}>
+                    <button>See more</button>
+                </div>
             </div>
-        </div>
+        </article>
     );
 };
