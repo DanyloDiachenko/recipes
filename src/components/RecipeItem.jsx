@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-export const CategoryItem = (props) => {
+export const RecipeItem = (props) => {
 
     const navigate = useNavigate();
 
@@ -9,9 +9,8 @@ export const CategoryItem = (props) => {
             <div className="card mt-4" key={props.key}>
                 <img src={props.img} alt="Recipe" />
                 <h2>{props.title}</h2>
-                <p>{props.description.slice(0, 150)}...</p>
-                <div className='d-flex align-items-end' style={{height: '100%'}}>
-                    <button onClick={() => navigate(`/category/${props.navigateTo}`)}>See more</button>
+                <div className='d-flex align-items-end' style={{ height: '100%' }}>
+                    <button onClick={() => navigate(`/recipe/${props.navigateTo}`)}>See more</button>
                 </div>
             </div>
         </article>

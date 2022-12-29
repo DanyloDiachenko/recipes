@@ -1,7 +1,6 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Categories } from './pages/Categories'
-import { Recipies } from './pages/Recipies';
 import { Category } from './pages/Category';
 import { Recipe } from './pages/Recipe';
 import { NotFound } from './pages/NotFound';
@@ -34,8 +33,6 @@ function App() {
           />
 
           <Route path="/category/:category" element={<Category />} />
-
-          <Route path="/recipies" element={<Recipies />} />
 
           <Route path="/recipe/:recipe" element={<Recipe />} />
 

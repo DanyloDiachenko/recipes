@@ -10,7 +10,6 @@ export const Categories = (props) => {
             .then(res => res.json())
             .then(data => setCategories(data.categories))
     }, []);
-    console.log(categories)
 
     return (
         <>
@@ -18,7 +17,7 @@ export const Categories = (props) => {
                 <input value={props.value} onChange={props.onChange} />
                 <button onClick={props.search}>Search</button>
             </div>
-            <h1>Categories</h1>
+                <h1>Categories</h1>
             {!categories ? <h2>Loading...</h2> : (
                 <section className='row'>
                     {categories.map((category) => (
