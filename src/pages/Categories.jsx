@@ -13,11 +13,12 @@ export const Categories = (props) => {
 
     return (
         <>
+            <h1 className='text-center'>Search Recipe</h1>
             <div className='d-flex justify-content-center'>
                 <input value={props.value} onChange={props.onChange} />
-                <button onClick={props.search}>Search</button>
+                <button style={{ marginLeft: '10px' }} onClick={props.search}>Search</button>
             </div>
-                <h1>Categories</h1>
+            <h2>Categories</h2>
             {!categories ? <h2>Loading...</h2> : (
                 <section className='row'>
                     {categories.map((category) => (

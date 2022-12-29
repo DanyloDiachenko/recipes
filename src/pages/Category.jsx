@@ -8,6 +8,8 @@ export const Category = () => {
     const navigate = useNavigate();
 
     const [recipies, setRecipies] = useState([]);
+    const [filtredRecipies, setFiltredRecipies] = useState(recipies);
+    const [inputValue, setInputValue] = useState('');
 
     useEffect(() => {
         fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
@@ -15,15 +17,33 @@ export const Category = () => {
             .then(data => setRecipies(data.meals))
     }, []);
 
+    useEffect(() => {
+
+        let data = [...recipies];
+
+        if (inputValue) {
+            data = data.filter((recipe) => recipe.strMeal.toLowerCase().includes(inputValue.toLowerCase()));
+        };
+
+        setFiltredRecipies(data)
+
+    }, [recipies, inputValue])
+
     return (
         <>
             <div className='d-flex justify-content-between'>
                 <h1>Category: {category}</h1>
                 <button onClick={() => navigate(-1)}>Go back</button>
             </div>
-            {!recipies ? <h2>Loading...</h2> : (
+            <div className='d-flex justify-content-center'>
+                <div>
+                    <h3>Search a recipe</h3>
+                    <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+                </div>
+            </div>
+            {!filtredRecipies ? <h2>Loading...</h2> : (
                 <section className='row'>
-                    {recipies.map((recipe) => (
+                    {filtredRecipies.map((recipe) => (
                         <RecipeItem
                             navigateTo={recipe.idMeal}
                             key={recipe.idMeal}
@@ -31,6 +51,7 @@ export const Category = () => {
                             title={recipe.strMeal}
                         />
                     ))}
+                    {!filtredRecipies.length && <h3>Nothing Found...</h3>}
                 </section>
             )}
         </>
