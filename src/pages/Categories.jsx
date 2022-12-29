@@ -23,6 +23,7 @@ export const Categories = (props) => {
                 <section className='row'>
                     {categories.map((category) => (
                         <CategoryItem
+                            navigateTo={category.strCategory}
                             key={category.idCategory}
                             img={category.strCategoryThumb}
                             title={category.strCategory}
