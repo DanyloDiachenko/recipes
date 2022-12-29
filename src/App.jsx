@@ -36,7 +36,7 @@ function App() {
 
           <Route path="/recipe/:recipe" element={<Recipe />} />
 
-          <Route element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 
