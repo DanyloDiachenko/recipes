@@ -4,3 +4,7 @@
 .card > div > button {
     width: 100%;
 }
+
+.recipe-icon {
+    width: 400px;
+}
