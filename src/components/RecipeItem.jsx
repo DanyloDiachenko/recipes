@@ -8,8 +8,8 @@ export const RecipeItem = (props) => {
                 <img src={props.img} alt="Recipe" />
                 <h3>{props.title}</h3>
                 <div className='d-flex align-items-end' style={{ height: '100%' }}>
-                    <Link to={'/recipe/' + props.navigateTo}>
-                        <button>See more</button>
+                    <Link style={{ width: '100%' }} to={'/recipe/' + props.navigateTo}>
+                        <button className='btn-see-more'>See more</button>
                     </Link>
                 </div>
             </div>
