@@ -46,8 +46,13 @@ function App() {
         </Routes>
       </main>
 
-      <footer>
-        <h5>footer</h5>
+      <footer className='mt-5 align-items-center d-flex justify-content-between align-items-center'>
+        <h5>Copyright © 2023 Receipes. All Right Reserved</h5>
+        <h4>
+          <a className='text-white' href="https://github.com/DanyloDiachenko/recepies">
+            Repo
+          </a>
+        </h4>
       </footer>
     </>
   );
