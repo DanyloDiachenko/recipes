@@ -4,7 +4,7 @@ export const CategoryItem = (props) => {
 
     return (
         <article className='col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center'>
-            <div className="card mt-4" key={props.key}>
+            <div className="card mt-4">
                 <img src={props.img} alt="Recipe" />
                 <h3>{props.title}</h3>
                 <p>{props.description.slice(0, 150)}...</p>
