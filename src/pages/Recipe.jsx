@@ -9,7 +9,7 @@ export const Recipe = () => {
     const [recipeInfo, setRecipeInfo] = useState({});
 
     useEffect(() => {
-        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipe}`)
+        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${recipe}`)
             .then(res => res.json())
             .then(data => setRecipeInfo(data.meals[0]))
     }, []);

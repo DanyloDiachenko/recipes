@@ -45,7 +45,7 @@ export const Category = () => {
                 <section className='row'>
                     {filtredRecipies.map((recipe) => (
                         <RecipeItem
-                            navigateTo={recipe.idMeal}
+                            navigateTo={recipe.strMeal}
                             key={recipe.idMeal}
                             img={recipe.strMealThumb}
                             title={recipe.strMeal}
