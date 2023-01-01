@@ -17,7 +17,7 @@ function App() {
         <h5>header</h5>
       </header>
 
-      <main className='container'>
+      <main className='container mx-auto'>
         <Routes>
           <Route exact path="/" element={<Categories
             value={inputValue}

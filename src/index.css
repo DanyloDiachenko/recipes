@@ -57,13 +57,12 @@ button {
 }
 
 .btn-go-back {
-    height: 40px;
     border-radius: 14px;
     border: 2px solid white;
     transition: 0.4s;
     font-size: 20px;
     font-weight: 500;
-    padding: 20px;
+    padding: 30px 35px;
     display: flex;
     align-items: center;
 }

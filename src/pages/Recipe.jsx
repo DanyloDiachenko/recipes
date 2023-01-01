@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 export const Recipe = () => {
@@ -7,12 +7,24 @@ export const Recipe = () => {
     const navigate = useNavigate();
 
     const [recipeInfo, setRecipeInfo] = useState({});
+    const [randomMealInfo, setRandomMealInfo] = useState({});
 
     useEffect(() => {
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${recipe}`)
             .then(res => res.json())
-            .then(data => setRecipeInfo(data.meals[0]))
+            .then(data => setRecipeInfo(data.meals[0]));
+
+        fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+            .then(res => res.json())
+            .then(data => setRandomMealInfo(data.meals[0]));
     }, []);
+    useEffect(() => {
+        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${recipe}`)
+            .then(res => res.json())
+            .then(data => setRecipeInfo(data.meals[0]));
+    }, [recipe]);
+
+    console.log(randomMealInfo)
 
     const ingredients = [
         {
@@ -128,16 +140,16 @@ export const Recipe = () => {
                 <button className="btn-go-back" onClick={() => navigate(-1)}>Go back</button>
             </div>
             {recipeInfo.idMeal ? (
-                <div className='d-flex justify-content-between mt-5'>
-                    <div>
+                <div className='d-flex justify-content-between mt-5 row'>
+                    <div className='col-lg-8 col-sm-12'>
                         <div>
                             <h6>
-                                Area: {recipeInfo.strArea}
+                                Area: <b>{recipeInfo.strArea}</b>
                             </h6>
                         </div>
-                        <div>
+                        <div className='mt-1'>
                             <h6>
-                                Category: {recipeInfo.strCategory}
+                                Category: <b>{recipeInfo.strCategory}</b>
                             </h6>
                         </div>
                         <h3 className="mt-4">Ingredients:</h3>
@@ -156,9 +168,27 @@ export const Recipe = () => {
                         </div>
                         <p className='mt-4 recipe-desc' style={{ maxWidth: '80%' }}>{recipeInfo.strInstructions}</p>
                     </div>
-                    <div>
-                        <img className='recipe-icon' src={recipeInfo.strMealThumb} alt="Recipe" />
-                        <a href={recipeInfo.strYoutube}>Watch <b>{recipeInfo.strMeal}</b> on Youtube</a>
+                    <div className='col-lg-4 col-sm-12'>
+                        <img style={{ width: '100%' }} className='recipe-icon' src={recipeInfo.strMealThumb} alt="Recipe" />
+                        <div className='text-center mt-2'>
+                            <a href={recipeInfo.strYoutube}>Watch <b>{recipeInfo.strMeal}</b> on Youtube</a>
+
+                            {randomMealInfo && (
+                                <div className='mt-5'>
+                                    <h2>Try today</h2>
+                                    <div className="card mx-auto mt-3 p-2" style={{ width: '75%' }}>
+                                        <img src={randomMealInfo.strMealThumb} alt="Recipe" />
+                                        <h4 className='mt-1'>{randomMealInfo.strMeal}</h4>
+                                        <p className='mt-2'>{randomMealInfo.strInstructions ? randomMealInfo.strInstructions.slice(0, 100) : ''}...</p>
+                                        <div className='d-flex align-items-end' style={{ height: '100%' }}>
+                                            <Link style={{ width: '100%' }} to={'/recipe/' + randomMealInfo.strMeal}>
+                                                <button className='btn-see-more mt-3'>See more</button>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             ) : <h4>Nothing Found...</h4>}
