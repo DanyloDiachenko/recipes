@@ -102,3 +102,7 @@ footer {
     background: rgb(69, 69, 69);
     color: white;
 }
+
+main {
+    min-height: calc(100vh - 256px);
+}
