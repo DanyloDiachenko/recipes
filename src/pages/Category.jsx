@@ -39,7 +39,7 @@ export const Category = () => {
                 <div className='d-flex justify-content-center'>
                     <div>
                         <h3 className='text-center'>Search a recipe</h3>
-                        <input placeholder='Write a name of recipe...' value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+                        <input className='mt-2' placeholder='Write a name of recipe...' value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
                     </div>
                 </div>
             )}

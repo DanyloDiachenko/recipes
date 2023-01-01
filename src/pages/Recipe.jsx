@@ -18,13 +18,12 @@ export const Recipe = () => {
             .then(res => res.json())
             .then(data => setRandomMealInfo(data.meals[0]));
     }, []);
+
     useEffect(() => {
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${recipe}`)
             .then(res => res.json())
             .then(data => setRecipeInfo(data.meals[0]));
     }, [recipe]);
-
-    console.log(randomMealInfo)
 
     const ingredients = [
         {

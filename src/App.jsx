@@ -10,21 +10,27 @@ function App() {
   const [inputValue, setInputValue] = useState('');
 
   const navigate = useNavigate();
+  console.log(window.location)
 
   return (
     <>
-      <header className='container align-items-center row mx-auto'>
-        <h1 className='col-3'>
+      <header className='mx-auto align-items-center row'>
+        <h1 onClick={() => navigate('/')} style={{ cursor: 'pointer' }} className='col-3'>
           Recipies Online
         </h1>
-        <span className='col-6 text-center'>
-          <input placeholder='Write a name of recipe...' value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-          <button className='btn-search' style={{ marginLeft: '10px' }} search={() => navigate(`/recipe/${inputValue}`)}>Search</button>
-        </span>
-        <h6 className='col-3 d-flex justify-content-end'>
-          <a href=""></a>
-          Repo
-        </h6>
+        {window.location.pathname.includes('/recipe') ? (
+          ''
+        ) : (
+          <span className='col-6 text-center'>
+            <input placeholder='Write a name of recipe...' value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+            <button className='btn-search' style={{ marginLeft: '10px' }} onClick={() => navigate(`/recipe/${inputValue}`)}>Search</button>
+          </span>
+        )}
+        <h4 className={`d-flex justify-content-end ${window.location.pathname.includes('/recipe') ? 'col-9' : 'col-3'}`}>
+          <a href="https://github.com/DanyloDiachenko/recepies">
+            Repo
+          </a>
+        </h4>
       </header>
 
       <main className='container mx-auto mt-5'>

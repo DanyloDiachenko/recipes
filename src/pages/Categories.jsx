@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { CategoryItem } from '../components/CategoryItem';
 
-export const Categories = (props) => {
+export const Categories = () => {
 
     const [categories, setCategories] = useState([]);
 
@@ -15,8 +15,8 @@ export const Categories = (props) => {
 
     return (
         <>
-            <h1 className='text-center'>Search Recipe</h1>
-            <h2>Categories</h2>
+            <h1 className='text-center'>Choose a Category</h1>
+            <h2>Categories:</h2>
             {!categories ? <h2>Loading...</h2> : (
                 <section className='row'>
                     {categories.map((category) => (
