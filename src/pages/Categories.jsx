@@ -17,8 +17,8 @@ export const Categories = (props) => {
         <>
             <h1 className='text-center'>Search Recipe</h1>
             <div className='d-flex justify-content-center'>
-                <input value={props.value} onChange={props.onChange} />
-                <button style={{ marginLeft: '10px' }} onClick={props.search}>Search</button>
+                <input placeholder='Write a name of recipe...' value={props.value} onChange={props.onChange} />
+                <button className='btn-search' style={{ marginLeft: '10px' }} onClick={props.search}>Search</button>
             </div>
             <h2>Categories</h2>
             {!categories ? <h2>Loading...</h2> : (

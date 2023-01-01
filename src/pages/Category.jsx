@@ -33,13 +33,13 @@ export const Category = () => {
         <>
             <div className='d-flex justify-content-between'>
                 <h1>Category: {category}</h1>
-                <button onClick={() => navigate(-1)}>Go back</button>
+                <button className='btn-go-back' onClick={() => navigate(-1)}>Go back</button>
             </div>
             {filtredRecipies && (
                 <div className='d-flex justify-content-center'>
                     <div>
-                        <h3>Search a recipe</h3>
-                        <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+                        <h3 className='text-center'>Search a recipe</h3>
+                        <input placeholder='Write a name of recipe...' value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
                     </div>
                 </div>
             )}
