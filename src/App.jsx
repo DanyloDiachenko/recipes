@@ -13,16 +13,20 @@ function App() {
 
   return (
     <>
-      <header>
-        <h5>header</h5>
+      <header className='container align-items-center row mx-auto'>
+        <h1 className='col-3'>
+          Recipies Online
+        </h1>
+        <span className='col-6 text-center'>
+          <input placeholder='Write a name of recipe...' value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+          <button className='btn-search' style={{ marginLeft: '10px' }} search={() => navigate(`/recipe/${inputValue}`)}>Search</button>
+        </span>
+        <h6 className='col-3 d-flex justify-content-end'>Repo</h6>
       </header>
 
-      <main className='container mx-auto'>
+      <main className='container mx-auto mt-5'>
         <Routes>
-          <Route exact path="/" element={<Categories
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            search={() => navigate(`/recipe/${inputValue}`)} />}
+          <Route exact path="/" element={<Categories />}
           />
 
           <Route path="/category/:category" element={<Category />} />
