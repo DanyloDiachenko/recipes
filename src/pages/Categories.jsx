@@ -6,9 +6,11 @@ export const Categories = (props) => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
-            .then(res => res.json())
-            .then(data => setCategories(data.categories))
+        if (!categories.length) {
+            fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
+                .then(res => res.json())
+                .then(data => setCategories(data.categories))
+        }
     }, []);
 
     return (

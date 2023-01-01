@@ -19,7 +19,7 @@ export const Category = () => {
 
     useEffect(() => {
 
-        let data = [...recipies];
+        let data = recipies;
 
         if (inputValue) {
             data = data.filter((recipe) => recipe.strMeal.toLowerCase().includes(inputValue.toLowerCase()));
@@ -35,15 +35,17 @@ export const Category = () => {
                 <h1>Category: {category}</h1>
                 <button onClick={() => navigate(-1)}>Go back</button>
             </div>
-            <div className='d-flex justify-content-center'>
-                <div>
-                    <h3>Search a recipe</h3>
-                    <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+            {filtredRecipies && (
+                <div className='d-flex justify-content-center'>
+                    <div>
+                        <h3>Search a recipe</h3>
+                        <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+                    </div>
                 </div>
-            </div>
-            {!filtredRecipies ? <h2>Loading...</h2> : (
+            )}
+            {!filtredRecipies.length ? <h4>Nothind Found...</h4> : (
                 <section className='row'>
-                    {filtredRecipies.map((recipe) => (
+                    {filtredRecipies && filtredRecipies.map((recipe) => (
                         <RecipeItem
                             navigateTo={recipe.strMeal}
                             key={recipe.idMeal}
@@ -51,7 +53,6 @@ export const Category = () => {
                             title={recipe.strMeal}
                         />
                     ))}
-                    {!filtredRecipies.length && <h3>Nothing Found...</h3>}
                 </section>
             )}
         </>
