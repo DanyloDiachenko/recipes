@@ -21,7 +21,10 @@ function App() {
           <input placeholder='Write a name of recipe...' value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
           <button className='btn-search' style={{ marginLeft: '10px' }} search={() => navigate(`/recipe/${inputValue}`)}>Search</button>
         </span>
-        <h6 className='col-3 d-flex justify-content-end'>Repo</h6>
+        <h6 className='col-3 d-flex justify-content-end'>
+          <a href=""></a>
+          Repo
+        </h6>
       </header>
 
       <main className='container mx-auto mt-5'>
