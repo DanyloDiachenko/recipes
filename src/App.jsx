@@ -10,12 +10,11 @@ function App() {
   const [inputValue, setInputValue] = useState('');
 
   const navigate = useNavigate();
-  console.log(window.location)
 
   return (
     <>
       <header className='mx-auto align-items-center row'>
-        <h1 onClick={() => navigate('/')} style={{ cursor: 'pointer' }} className='col-3'>
+        <h1 onClick={() => navigate('/')} style={{ cursor: 'pointer' }} className='col-lg-3'>
           Recipies Online
         </h1>
         {window.location.pathname.includes('/recipe') ? (
