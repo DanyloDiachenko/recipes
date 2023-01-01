@@ -13,7 +13,7 @@ function App() {
   console.log(window.location)
 
   return (
-    <section className='abc'>
+    <>
       <header className='mx-auto align-items-center row'>
         <h1 onClick={() => navigate('/')} style={{ cursor: 'pointer' }} className='col-3'>
           Recipies Online
@@ -54,7 +54,7 @@ function App() {
           </a>
         </h4>
       </footer>
-    </section>
+    </>
   );
 };
 
