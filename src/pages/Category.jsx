@@ -32,7 +32,7 @@ export const Category = () => {
     return (
         <>
             <div className='d-flex justify-content-between'>
-                <h1>Category: {category}</h1>
+                <h1>Category: <b>{category}</b></h1>
                 <button className='btn-go-back' onClick={() => navigate(-1)}>Go back</button>
             </div>
             {filtredRecipies && (

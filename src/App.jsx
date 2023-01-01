@@ -14,18 +14,18 @@ function App() {
   return (
     <>
       <header className='mx-auto align-items-center row'>
-        <h1 onClick={() => navigate('/')} style={{ cursor: 'pointer' }} className='col-lg-3'>
+        <h2 onClick={() => navigate('/')} style={{ cursor: 'pointer' }} className='col-lg-3 col-md-12 title'>
           Recipies Online
-        </h1>
+        </h2>
         {window.location.pathname.includes('/recipe') ? (
           ''
         ) : (
-          <span className='col-6 text-center'>
+          <span className='col-lg-6 col-md-12 text-center'>
             <input placeholder='Write a name of recipe...' value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
             <button className='btn-search' style={{ marginLeft: '10px' }} onClick={() => navigate(`/recipe/${inputValue}`)}>Search</button>
           </span>
         )}
-        <h4 className={`d-flex justify-content-end ${window.location.pathname.includes('/recipe') ? 'col-9' : 'col-3'}`}>
+        <h4 className={`d-flex repo ${window.location.pathname.includes('/recipe') ? 'col-lg-9 col-md-12' : 'col-lg-3 col-md-12'}`}>
           <a href="https://github.com/DanyloDiachenko/recepies">
             Repo
           </a>

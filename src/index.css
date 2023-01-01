@@ -105,3 +105,19 @@ footer {
 main {
     min-height: calc(100vh - 256px);
 }
+
+.repo {
+    justify-content: end;
+}
+
+@media(max-width: 991px) {
+    .title {
+        text-align: center;
+        padding-bottom: 15px;
+    }
+    .repo {
+        justify-content: center !important;
+        text-align: center;
+        padding-top: 15px;
+    }
+}

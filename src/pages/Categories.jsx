@@ -16,7 +16,6 @@ export const Categories = () => {
     return (
         <>
             <h1 className='text-center'>Choose a Category</h1>
-            <h2>Categories:</h2>
             {!categories ? <h2>Loading...</h2> : (
                 <section className='row'>
                     {categories.map((category) => (
