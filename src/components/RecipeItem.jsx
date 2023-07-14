@@ -8,6 +8,8 @@ export const RecipeItem = (props) => {
                     src={props.img}
                     alt="Recipe"
                     loading="lazy"
+                    width={262}
+                    height={262}
                 />
                 <h3>{props.title}</h3>
                 <div className="d-flex align-items-end" style={{ height: "100%" }}>

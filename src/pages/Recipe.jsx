@@ -167,7 +167,13 @@ export const Recipe = () => {
                         <p className="mt-4 recipe-desc" style={{ maxWidth: "80%" }}>{recipeInfo.strInstructions}</p>
                     </div>
                     <div className="col-lg-4 col-sm-12">
-                        <img style={{ width: "100%" }} className="recipe-icon" src={recipeInfo.strMealThumb} alt="Recipe" />
+                        <img
+                            style={{ width: "100%" }}
+                            className="recipe-icon"
+                            src={recipeInfo.strMealThumb}
+                            alt="Recipe"
+                            loading='lazy'
+                        />
                         <div className="text-center mt-2">
                             <a href={recipeInfo.strYoutube}>Watch <b>{recipeInfo.strMeal}</b> on Youtube</a>
                             {randomMealInfo && (
@@ -176,9 +182,17 @@ export const Recipe = () => {
                                     <div className="card mx-auto mt-3 p-2" style={{ width: "75%" }}>
                                         <img src={randomMealInfo.strMealThumb} alt="Recipe" />
                                         <h4 className="mt-1">{randomMealInfo.strMeal}</h4>
-                                        <p className="mt-2">{randomMealInfo.strInstructions ? randomMealInfo.strInstructions.slice(0, 100) : ""}...</p>
-                                        <div className="d-flex align-items-end" style={{ height: "100%" }}>
-                                            <Link style={{ width: "100%" }} to={"/recipe/" + randomMealInfo.strMeal}>
+                                        <p className="mt-2">
+                                            {randomMealInfo.strInstructions ? randomMealInfo.strInstructions.slice(0, 100) : ""}...
+                                        </p>
+                                        <div
+                                            className="d-flex align-items-end"
+                                            style={{ height: "100%" }}
+                                        >
+                                            <Link
+                                                style={{ width: "100%" }}
+                                                to={"/recipe/" + randomMealInfo.strMeal}
+                                            >
                                                 <button className="btn-see-more mt-3">See more</button>
                                             </Link>
                                         </div>
