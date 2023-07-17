@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { CategoryItem } from "../components/CategoryItem";
 
@@ -8,14 +8,16 @@ export const Categories = () => {
     useEffect(() => {
         if (!categories.length) {
             fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
-                .then(res => res.json())
-                .then(data => setCategories(data.categories))
+                .then((res) => res.json())
+                .then((data) => setCategories(data.categories));
         }
     }, []);
 
     if (!categories) {
-        <h2>Loading...</h2>
+        <h2>Loading...</h2>;
     }
+
+    console.log(categories);
 
     return (
         <>
