@@ -16,7 +16,7 @@ demo-link: https://recepies-sigma.vercel.app/
 - @types/react (ver. 18.2.15)
 - @types/react-dom (ver. 18.2.7)
 
-#file .env:
+### file .env:
 REACT_APP_API_URL=https://www.themealdb.com/api/json/v1/1/
   
 ### Perfomance:
