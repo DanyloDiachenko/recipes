@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 import { CategoryItem } from "../components/CategoryItem";
+import { ICategory } from "src/interfaces/category.interface";
 
-export const Categories = () => {
-    const [categories, setCategories] = useState([]);
+export const Categories = (): JSX.Element => {
+    const [categories, setCategories] = useState<ICategory[]>([]);
 
     useEffect(() => {
         if (!categories.length) {
-            fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
+            fetch(`${process.env.REACT_APP_API_URL}categories.php`)
                 .then((res) => res.json())
                 .then((data) => setCategories(data.categories));
         }
@@ -16,8 +17,6 @@ export const Categories = () => {
     if (!categories) {
         <h2>Loading...</h2>;
     }
-
-    console.log(categories);
 
     return (
         <>

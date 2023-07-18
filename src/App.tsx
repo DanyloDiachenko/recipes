@@ -5,9 +5,9 @@ import { Categories } from "./pages/Categories";
 import { Category } from "./pages/Category";
 import { Recipe } from "./pages/Recipe";
 
-const App = () => {
+const App = (): JSX.Element => {
     const navigate = useNavigate();
-    const [inputValue, setInputValue] = useState("");
+    const [inputValue, setInputValue] = useState<string>("");
 
     return (
         <>

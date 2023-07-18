@@ -2,25 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { RecipeItem } from "../components/RecipeItem";
+import { IRecipe } from "src/interfaces/recipe.interface";
 
-export const Category = () => {
+export const Category = (): JSX.Element => {
     const category = useParams().category;
     const navigate = useNavigate();
 
-    const [recipies, setRecipies] = useState([]);
-    const [filtredRecipies, setFiltredRecipies] = useState(recipies);
-    const [inputValue, setInputValue] = useState("");
+    const [recipies, setRecipies] = useState<IRecipe[]>([]);
+    const [filtredRecipies, setFiltredRecipies] = useState<IRecipe[]>(recipies);
+    const [inputValue, setInputValue] = useState<string>("");
 
     useEffect(() => {
-        fetch(
-            `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
-        )
+        fetch(`${process.env.REACT_APP_API_URL}filter.php?c=${category}`)
             .then((res) => res.json())
             .then((data) => setRecipies(data.meals));
     }, []);
 
     useEffect(() => {
-        let data = recipies;
+        let data: IRecipe[] = recipies;
 
         if (inputValue) {
             data = data.filter((recipe) =>

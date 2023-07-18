@@ -21,7 +21,10 @@ export const RecipeItem = ({
                     height={262}
                 />
                 <h3>{title}</h3>
-                <div className="d-flex align-items-end">
+                <div
+                    className="d-flex align-items-end"
+                    style={{ height: "100%" }}
+                >
                     <button
                         onClick={() => navigate("/recipe/" + navigateTo)}
                         className="btn-see-more"
